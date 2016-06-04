@@ -3,7 +3,7 @@ nanoISP is a little project to manage and control pppoe users in an ISP envirome
 
 To acomplish this I'll use...
   * FreeRADIUS - for user authentication
-  * node.js - as enviromento for the app backend
+  * node.js - as environment for the app backend
   * Electron - as the app frontend
   * MySQL Server - as information storage
   * ... and of course, an EdgeMAX router for field-testing :P

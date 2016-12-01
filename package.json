@@ -1,0 +1,26 @@
+{
+  "name" : "nanoISP",
+  "description" : "PPPoE client management module",
+  "version" : "0.0.1",
+  "author": "Fernandes Guimaraes",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/fgsants/nanoISP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fgsants/nanoISP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fgsants/nanoISP/issues"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "connect-ensure-login": "latest",
+    "cookie-parser": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+	"mysql" : "latest",
+	"md5" : "latest"
+  }
+}

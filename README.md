@@ -1,5 +1,5 @@
 # nanoISP | Manager
-nnanoISP | Manager is a little project to manage and control users in an ISP enviroment focusing integration with Ubiquiti's EdgeMAX routers for traffic shapping. Support for Mikrotik RouterOS is also on the list. 
+nanoISP | Manager is a little project to manage and control users in an ISP enviroment focusing integration with Ubiquiti's EdgeMAX routers for traffic shapping. Support for Mikrotik RouterOS is also on the list. 
 
 _It´s my first step towards an ISP Management ecosystem and my first opensource project. Pacience :P_
 
@@ -21,7 +21,7 @@ To acomplish this I'm using...
 
 ## Introduction
 
-Essentially, this project permits you, in his current status, to create and manage user and access profiles in FreeRADIUS to authenticate against NAS devices for internet access.It supports sending traffic shapping information using the WISPr-Bandwidth-Max-Down and WISPr-Bandwidth-Max-Up attributes. If your NAS device support those attributes and RADIUS you're good to go.
+Essentially, this project permits you, in his current status, to create and manage user and access profiles in FreeRADIUS to authenticate against NAS devices for internet access. It supports sending traffic shapping information using the WISPr-Bandwidth-Max-Down and WISPr-Bandwidth-Max-Up attributes. If your NAS device support those attributes and RADIUS you're good to go.
 
 Futute plans include:
 * Dashboard for realtime statistics of current loggedin users and bandwidth ussage

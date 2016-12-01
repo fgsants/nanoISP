@@ -77,7 +77,7 @@ Now, install with
 npm install
 ```
 
-### Adicional FreeRADIUS and MySQL configuration
+### Addicional FreeRADIUS and MySQL configuration
 
 To setup those services for nanoISP | Manager execute the following commands.
 Observation: Be shure you're still in the project directory.
@@ -140,7 +140,7 @@ npm start
 ```
 and go to http://ip_of_your_server:3000
 
-### Addicional informations
+### Addicional information
 
 * Don't forget to add your NAS device to the client.conf file
 * Setup your NAS device according to his manual with the secret you chossed in the client.conf file

@@ -26,6 +26,14 @@ CREATE TABLE IF NOT EXISTS `radcheck` (
   `value` varchar(253) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `radgroupcheck` (
+`ID` int(11) NOT NULL,
+  `groupname` varchar(64) NOT NULL,
+  `attribute` varchar(64) DEFAULT NULL,
+  `op` char(2) DEFAULT NULL,
+  `value` varchar(253) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `radgroupreply` (
 `ID` int(11) NOT NULL,
   `groupname` varchar(64) DEFAULT NULL,
@@ -55,7 +63,10 @@ ALTER TABLE `clients`
 ALTER TABLE `radcheck`
  ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `username` (`username`);
 
-ALTER TABLE `radgroupreply`
+ALTER TABLE `radgroupcheck`
+ ADD PRIMARY KEY (`ID`);
+ 
+ ALTER TABLE `radgroupreply`
  ADD PRIMARY KEY (`ID`);
 
 ALTER TABLE `radreply`
@@ -68,6 +79,9 @@ ALTER TABLE `clients`
 MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `radcheck`
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `radgroupcheck`
 MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `radgroupreply`

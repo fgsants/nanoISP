@@ -247,7 +247,8 @@
 		});
 	</script>
 	<script> //Get clients
-	var table = $('#clients-list').DataTable({
+	$( document ).ready(function() {
+		var table = $('#clients-list').DataTable({
 		"ajax": {
 		"url": "/api/clients",
 		"dataSrc": "aaData",
@@ -268,13 +269,15 @@
 		{ data : "add_city" },
 		{ data : "add_state" }
 		]
-	});
-	$('.p-list').on( 'click', function() {
+		});
+	  $('.p-list').on( 'click', function() {
 		table.ajax.reload();
 		console.log('ok');
+	  });
 	});
 	</script>
 	<script> //Get profiles
+	$( document ).ready(function() {
 		var table = $('#profile-list').DataTable({
 			"ajax": {
 			"url": "/api/profiles",
@@ -290,25 +293,53 @@
 		});
 		$('.p-list').on( 'click', function() {
 			table.ajax.reload();
-			console.log('ok');
-		});
-	</script>
-	<script> //Create new profile
-	$("#p-add").click(function(){
-		$.ajax({
-		url: "/api/profiles",
-		type: "POST",
-		data: {groupname: $('#groupname').val(), down: $('#down').val(), up: $('#up').val()}
 		});
 	});
 	</script>
+	<script> //Create new profile
+	$( document ).ready(function() {
+	  $("#p-add").click(function(){
+		var down = $('#down').val();
+		var up = $('#up').val();
+		var ndown = down.replace(/[^0-9]/g, '');
+		var nup = up.replace(/[^0-9]/g, '');
+		var ldown = down.charAt(down.length-1);
+		var lup = up.charAt(up.length-1);
+		
+			if (typeof ldown != undefined && ldown == 'k'){
+				var down = ndown * 1024;
+			} else if (typeof ldown != undefined && ldown == 'm'){ 
+				var down = ndown * 1024000;
+			}
+			else {
+				var down = ndown;
+			}
+			if (typeof lup != undefined && lup == 'k'){
+				var up = nup * 1024;
+			} else if (typeof lup != undefined && lup == 'm'){ 
+				var up = nup * 1024000;
+			}
+			else {
+				var up = nup;
+			}
+		
+		$.ajax({
+		url: "/api/profiles",
+		type: "POST",
+		data: {groupname: $('#groupname').val(), down: down, up: up}
+		});
+	  });
+	});
+	</script>
 	<script> //Create new client
-	$("#c-add").click(function(){
+	$( document ).ready(function() {
+	  $("#c-add").click(function(){
 		$.ajax({
 		url: "/api/clients",
 		type: "POST",
 		data: {fullname: $('#fullname').val(), birth: $('#birth').val(), email: $('#email').val(), socialID: $('#socialID').val(), phone1: $('#phone1').val(), phone2: $('#phone2').val(), add_street: $('#street').val(), add_number: $('#number').val(), add_district: $('#district').val(), add_zip: $('#zip').val(), add_city: $('#city').val(), add_state: $('#state').val(), login: $('#login').val(), password: $('#password').val(), profile: $('#p-dropdown').val()}
 		});
+	  });
 	});
 	</script> 
 	<script> //Get profiles dropdown

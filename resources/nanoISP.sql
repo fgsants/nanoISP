@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `phone2` varchar(24) DEFAULT NULL,
   `add_street` varchar(64) DEFAULT NULL,
   `add_number` decimal(6,0) DEFAULT NULL,
+  `add_info` varchar(64) DEFAULT NULL,
   `add_district` varchar(64) DEFAULT NULL,
   `add_zip` varchar(12) DEFAULT NULL,
   `add_city` varchar(32) DEFAULT NULL,

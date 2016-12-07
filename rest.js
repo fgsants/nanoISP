@@ -7,20 +7,20 @@ function REST_ROUTER(router,connection,md5) {
 
 REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
     var self = this;
-    router.get("/h",function(req,res){
+    
+	router.get("/h",function(req,res){
         res.json({"Message" : "Hello World !"});
     });
 
 //GET Requests
     router.get("/clients",function(req,res){
-        var query = "SELECT fullname, email, phone1, phone2, birth, socialID, add_street, add_number, add_district, add_zip, add_city, add_state FROM ??";
-        var table = ["clients"];
-        query = mysql.format(query,table);
-	    connection.query(query,function(err,aaData){
+        var query = "SELECT clients.*, radcheck.value, radusergroup.groupname FROM clients INNER JOIN radcheck ON clients.username = radcheck.username INNER JOIN radusergroup ON clients.username = radusergroup.username";
+        query = mysql.format(query);
+	    connection.query(query,function(err,data){
 			if(err) {
 				res.json({"Error" : true, "Message" : "Error executing MySQL query"});
 			} else {
-				res.json({aaData});
+				res.json({data});
 			}
 		});
     });
@@ -61,15 +61,15 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
 		sql1 = mysql.format(query1,table1);
         sql2 = mysql.format(query2,table2);
 		sql3 = mysql.format(query3,table3);
-        connection.query(sql1, function(err,rows){
+        connection.query(sql2, function(err,rows){
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } 
-			connection.query(sql2, function(err,rows){
+			connection.query(sql3, function(err,rows){
 				if(err) {
 					res.json({"Error" : true, "Message" : "Error executing MySQL query"});
 				} 			
-				connection.query(sql3, function(err,rows){
+				connection.query(sql1, function(err,rows){
 					if(err) {
 						res.json({"Error" : true, "Message" : "Error executing MySQL query"});
 					} else {
@@ -103,6 +103,8 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
 				}
 			});
 		});
+		console.log(sql1);
+		console.log(sql2);
     });
 
 //Updated Requests

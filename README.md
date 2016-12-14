@@ -86,7 +86,6 @@ Observation: Be shure you're still in the project directory.
 Connect to your MySQL instance with root user and password created during install 
 ```
 mysql -u root -p 
-database < resources/nanoISP.sql
 ```
 Then create nanoISP database and user
 ```

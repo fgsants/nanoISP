@@ -20,7 +20,7 @@
     "express-session": "latest",
     "passport": "latest",
     "passport-local": "latest",
-	"mysql" : "latest",
-	"md5" : "latest"
+    "mysql" : "latest",
+    "md5" : "latest"
   }
 }

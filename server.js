@@ -5,9 +5,8 @@ var bodyParser  = require("body-parser");
 var Strategy = require('passport-local').Strategy;
 var rest = require("./rest.js");
 var path = require('path');
-var md5 = require('MD5');
+var md5 = require('md5');
 var app = express();
-var Pepper = require('chilli-pepper');
 
 app.use(express.static('web'));
 app.use(bodyParser.urlencoded({ extended: true }));

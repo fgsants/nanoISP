@@ -69,6 +69,7 @@ Thats it for now. Let's get started...
 
 Clone the repository, and change to the project dir:
 ```
+sudo apt-get install git
 git clone https://github.com/fgsants/nanoISP
 cd nanoISP
 ```
@@ -89,7 +90,7 @@ mysql -u root -p
 ```
 Then create nanoISP database and user
 ```
-CREATE USER 'nano'@'%' IDENTIFIED BY 'nano@2019';GRANT USAGE ON *.* TO 'nano'@'%' IDENTIFIED BY 'Shelly92' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `nanoISP`;GRANT ALL PRIVILEGES ON `nanoISP`.* TO 'nano'@'%';
+CREATE USER 'nano'@'%' IDENTIFIED BY 'nano@2019';GRANT USAGE ON *.* TO 'nano'@'%' IDENTIFIED BY 'nano@2019' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `nanoISP`;GRANT ALL PRIVILEGES ON `nanoISP`.* TO 'nano'@'%';
 ```
 Import db structure
 ```

@@ -105,9 +105,9 @@ sudo service mysql restart
 Copy the config files to FreeRADIUS folder.
 Observation: Be shure you're still in the project directory.
 ```
-cp resources/clients.conf /etc/freeradius/clients.conf
-cp resources/radiusd.conf /etc/freeradius/radiusd.conf
-cp resources/sql.conf /etc/freeradius/sql.conf
+cp resources/freeradius/clients.conf /etc/freeradius/clients.conf
+cp resources/freeradius/radiusd.conf /etc/freeradius/radiusd.conf
+cp resources/freeradius/sql.conf /etc/freeradius/sql.conf
 ```
 Then edit the clients.conf file and add your NAS Device information.
 ```

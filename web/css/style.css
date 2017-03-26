@@ -2,7 +2,7 @@ body{
     font-family: 'Lato', sans-serif;
 }
 .navbar-default {
-    background: #158c9e;
+    background: rgba(18, 124, 140, 0.75) !important;
 	border-color: transparent;
 }
 .navbar {
@@ -23,13 +23,16 @@ body{
 .navbar-brand {
     float: left;
     height: 50px;
-    padding: 10px 0px;
+    padding: 1px 0px;
     font-size: 18px;
     line-height: 20px;
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     color: #fff;
-    background-color: #158c9e;
+    background-color: rgb(77, 157, 169) !important;
+}
+.navbar-collapse {
+    border-top: 0;
 }
 .navbar-toggle {
     position: relative;
@@ -42,9 +45,6 @@ body{
     background-image: none;
     border: transparent;
     border-radius: 0px;
-}
-.hide-content {
-	display:block;
 }
 td.details-control {
     background: url('../images/open.png') no-repeat center center;
@@ -59,4 +59,59 @@ div.slider {
 table.dataTable tbody td.no-padding {
     padding: 0;
 }
+
+.p-header {
+    height: 7.5rem;
+}
+.p-header .p-header_top {
+    line-height: 2rem;
+}
+.p-header .p-header_left {
+    float: left;
+
+}
+.p-header .p-header_left>* {
+	vertical-align: middle;
+}
+.p-header h1 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px 0 0;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+.h1, h1 {
+    font-size: 28px;
+}
+th {
+    font-weight: normal;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 4px;
+}
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+table.dataTable thead th.sorting:after,table.dataTable thead th.sorting_asc:after,table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: block;
+    font-family: FontAwesome;
+}
+table.dataTable thead th.sorting_asc:after {
+    content: "\f107";
+}
+table.dataTable thead th.sorting_desc:after {
+    content: "\f106";
+}
+table.dataTable thead th.sorting:after {
+    content: "";
+}
+.hide-content {
+	display:block;
+}
 #clients, #groups, #placeholder{ display:none; }
+

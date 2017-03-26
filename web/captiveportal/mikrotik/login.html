@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>nano|WiFi</title>
+
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row"style="text-align: center">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="box-login">
+                <img class="img-responsive center-block" style= "margin-top = 35px" src="images/logo.png" alt="logo">
+                <form name="login" action="$(link-login-only)" method="post"
+					$(if chap-id) onSubmit="return doLogin()" $(endif)>
+					<input type="hidden" name="dst" value="$(link-orig)" />
+					<input type="hidden" name="popup" value="true" />
+					
+					<p style="color:white;">Informe os seu dados para se conectar na rede. Não é cliente? <a href="#" class="forgot-pass" data-toggle="modal" data-target="#cadastro"><b>Cadastre-se</b></a> e acesse grátis promocionalmente.
+
+					<div class="login-form"style= "margin-top: 15px; margin-bottom: 15px">
+					<input class="login-fields" type="text" name="username" value="$(username)" placeholder="Usuário" />
+					<input class="login-fields" type="password" name="password" placeholder="Senha" />
+					</div>
+					<input class="login-submit btn btn-default" type="submit" id="bc" value="Conectar"/>
+					$(if error)<br /><div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+ 
+ 
+<!-- Modals -->
+	<div id="cadastro" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Cadastre-se</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h5><b>Informações de contato</b></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="first_name"> </label>
+							<input type="text" class="form-control" id="first_name" placeholder="Nome">
+						</div>
+						<div class="col-md-5">
+							<label for="last_name"> </label>
+							<input type="text" class="form-control" id="last_name" placeholder="Sobrenome">
+						</div>
+						<div class="col-md-3">
+							<label for="birth">Aniversário:</label>
+							<input type="date" class="form-control" id="birth">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label for="email"></label>
+							<input type="email" class="form-control" id="email" placeholder="E-mail">
+						</div>
+						<div class="col-md-3">
+							<label for="cpf"></label>
+							<input type="text" class="form-control" id="cpf" placeholder="CPF">
+						</div>
+						<div class="col-md-3">
+							<label for="phone1"></label>
+							<input type="tel" class="form-control" id="phone1" placeholder="Tel. fixo">
+						</div>
+						<div class="col-md-3">
+							<label for="phone2"></label>
+							<input type="tel" class="form-control" id="phone2" placeholder="Celular">
+						</div>
+					</div>
+					<h5><b>Endereço</b></h4>
+					<div class="row">
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="street" placeholder="Rua">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="number" placeholder="Nº">
+						</div>
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="district" placeholder="Bairro">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="zip" placeholder="CEP">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+						<label for="city"></label>
+							<input type="text" class="form-control" id="city" placeholder="Cidade">
+						</div>
+						<div class="col-md-3">
+							<label for="state"></label>
+							<input type="text" class="form-control" id="state" placeholder="Estado">
+						</div>
+					</div>
+					<h5><b>Crie um login</b></h4>
+					<div class="row">
+						<div class="col-md-3">
+							<input type="text" required class="form-control" id="login" placeholder="Login">
+						</div>
+						<div class="col-md-3">
+							<input type="password" required class="form-control" id="password" placeholder="Senha" >
+						</div>
+						<div class="col-md-3"></div>
+						<div class="col-md-3"></div>
+					</div>
+					<p> </p>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cadastrar</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Scripts -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</body>
+</html>

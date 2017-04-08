@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>nanoISP | Manager</title>
+
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="fa/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/datatables.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-default no-margin">
+    <!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header fixed-brand navbar-collapse">
+			<a class="navbar-brand"> <img src="images/logo.png" alt="logo"> </a>
+		</div><!-- navbar-header-->
+     </nav>
+	<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                 <li class="active">
+                    <a href="#" data-section="dashboard"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span>Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" data-section="clients" id="c-list"><span class="fa-stack fa-lg pull-left"><i class="fa fa-users fa-stack-1x "></i></span> Clients</a>
+                </li>
+				<li>
+					<a href="#" data-section="groups" id="p-list"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list  fa-stack-1x p-list"></i></span>Service Plans</a>
+				</li>
+                <li>
+                    <a href="#"data-section="placeholder"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Placeholder</a>
+					  <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="#" data-section="placeholder" id="c-list"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user-circle  fa-stack-1x c-list"></i></span>Placeholder 1</a></li>
+                        <li><a href="#" data-section="placeholder" id="p-list"><span class="fa-stack fa-lg pull-left"><i class="fa fa-users  fa-stack-1x p-list"></i></span>Placeholder 2</a></li>
+                      </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid xyz">
+			  <div id="content">
+				<!-- Dashboard -->
+                <section id="dashboard" class="hide-content">
+				  <div class="p-header">
+					<div class="p-header_top">
+						<div class= "p-header_left">
+							<h1>Dashboard</h1>
+						</div>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-lg-12">
+					
+					</div>
+				  </div>
+				</section>
+				<!-- Clients -->
+				<section id="clients" class="hide-content">
+				  <div class="p-header">
+					<div class="p-header_top">
+						<div class= "p-header_left">
+							<h1>Clients</h1>
+							<button type="button" class="btn btn-default fa fa-plus" data-toggle="modal" data-target="#add_client"></button>
+						</div>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-lg-12">
+						<div class="table-responsive">
+							<table data-role="table" id="clients-list" class="table table-striped table-bordered table-hover panel panel-default display">
+								<thead>
+									<tr>
+										<th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+										<th>Fullname</th>
+										<th>E-mail</th>
+										<th>Phone</th>
+										<th>Mobile</th>
+										<th>Birthday</th>
+										<th>Social ID</th>
+										<th>Login</th>
+										<th>Password</th>
+										<th>Plan</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</section>
+				<!-- Service Plans -->
+                <section id="groups" class="hide-content">
+				  <div class="p-header">
+					<div class="p-header_top">
+						<div class= "p-header_left">
+							<h1>Service Plans</h1>
+							<button type="button" class="btn btn-default fa fa-plus" data-toggle="modal" data-target="#add_profile"></button>
+						</div>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-lg-12">
+						<div class="table-responsive">
+							<table data-role="table" id="profile-list" class="table table-striped table-bordered table-hover panel panel-default">
+								<thead>
+									<tr>
+										<th>Profile Name</th>
+										<th>Download Speed</th>
+										<th>Upload Speed</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
+				</section>
+			  </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Modals -->
+	<div id="add_client" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add new client</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h5><b>Contact information</b></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="fullname"> </label>
+							<input type="text" class="form-control" id="fullname" placeholder="Full name">
+						</div>
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-3">
+							<label for="birth">Birthday</label>
+							<input type="date" class="form-control" id="birth">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label for="email"></label>
+							<input type="email" class="form-control" id="email" placeholder="E-mail">
+						</div>
+						<div class="col-md-3">
+							<label for="socialID"></label>
+							<input type="text" class="form-control" id="socialID" placeholder="CPF">
+						</div>
+						<div class="col-md-3">
+							<label for="phone1"></label>
+							<input type="tel" class="form-control" id="phone1" placeholder="Phone">
+						</div>
+						<div class="col-md-3">
+							<label for="phone2"></label>
+							<input type="tel" class="form-control" id="phone2" placeholder="Mobile">
+						</div>
+					</div>
+					<h5><b>Address</b></h4>
+					<div class="row">
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="street" placeholder="Street">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="number" placeholder="N?">
+						</div>
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="addinfo" placeholder="Addicional Info">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="zip" placeholder="ZIP">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="district"></label>
+							<input type="text" class="form-control" id="district" placeholder="District">
+						</div>
+						<div class="col-md-4">
+							<label for="city"></label>
+							<input type="text" class="form-control" id="city" placeholder="City">
+						</div>
+						<div class="col-md-3">
+							<label for="state"></label>
+							<input type="text" class="form-control" id="state" placeholder="State">
+						</div>
+					</div>
+					<h5><b>Account information</b></h4>
+					<div class="row">
+						<div class="col-md-3">
+							<input type="text" class="form-control" id="login" placeholder="Login">
+						</div>
+						<div class="col-md-3">
+							<input type="password" class="form-control" id="password" placeholder="Password">
+						</div>
+						<div class="col-md-3">
+							<input type="password" class="form-control" id="password2" placeholder="Confirm password">
+						</div>
+						<div class="col-md-3">
+							<select class="form-control"  id="p-dropdown">
+							</select>
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+					<p> </p>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default c-list" id="c-add" data-dismiss="modal">Submit</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="add_profile" class="modal fade" role="dialog">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add new profile</h4>
+				</div>
+				<div class="modal-body">
+					<form id= "add-profile">
+						<div class="col-md-6">
+							<label for="groupname"></label>
+							<input type="text" class="form-control" id="groupname" placeholder="Profile Name">
+						</div>
+						<div class="col-md-3">
+							<label for="down"></label>
+							<input type="text" class="form-control" id="down" placeholder="Download speed">
+						</div>
+						<div class="col-md-3">
+							<label for="up"></label>
+							<input type="text" class="form-control" id="up" placeholder="Upload speed">
+						</div>
+					<p> </p>
+					<div class="modal-footer">
+						<button type="submit " class="btn btn-default  p-list" id="p-add" data-dismiss="modal">Submit</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/sidebar.js"></script>
+	<script src="js/datatables.min.js"></script>
+	
+	<script> //Hide contend
+		$("a").on("click", function(e) {
+			e.preventDefault();
+		var sectionID = '#'+ $(this).data("section");
+			$("#content section:visible").hide();
+			$(sectionID).fadeIn();
+		});
+		
+	</script>
+	<script> //Get clients
+function format (d) {
+    // `d` is the original data object for the row
+    return '<div class="slider"><table>'+
+        '<tr>'+
+            '<td><b>Address:&nbsp;</b>'+d.add_street+ ',&nbsp;' +d.add_number+ ',&nbsp;' +d.add_district+ ',&nbsp;'+d.add_zip+ ',&nbsp;' +d.add_city+ ',&nbsp;' +d.add_state+'</td>'+
+        '</tr>'+
+    '</table></div>';
+}
+
+$( document ).ready(function() {
+	table = $('#clients-list').DataTable({
+		"ajax": {
+		"url": "/api/clients",
+		"type": "GET"
+		},
+		"bAutoWidth": false,
+	    columns: [
+		    {
+                "className":    'details-control',
+                "orderable":	false,
+                "data":         null,
+                "defaultContent": ''
+			},
+			
+			{ data : "fullname" },
+			{ data : "email" },
+			{ data : "phone1" },
+			{ data : "phone2" },
+			{ data : "birth" },
+			{ data : "socialID" },
+			{ data : "username" },
+			{ data : "value" },
+			{ data : "groupname" },
+
+		],
+		"order": [[1, 'asc']]
+	   });
+
+    // Add event listener for opening and closing details
+    $('#clients-list').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            $('div.slider', row.child()).slideUp( function () {
+			row.child.hide();
+            tr.removeClass('shown');
+			});
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()), 'no-padding' ).show();
+            tr.addClass('shown');
+			$('div.slider', row.child()).slideDown();
+        }
+    });
+	
+	  $('.p-list').on( 'click', function() {
+		table.ajax.reload();
+		console.log('ok');
+	  });
+
+});
+	</script>
+	<script> //Get profiles
+	$( document ).ready(function() {
+		var table = $('#profile-list').DataTable({
+			"ajax": {
+			"url": "/api/profiles",
+			"dataSrc": "aaData",
+			"type": "GET"
+			},
+			"bAutoWidth": false,
+			columns: [
+			{ data : "groupname" },
+			{ data : "down" },
+			{ data : "up" }
+			]	
+		});
+		$('.p-list').on( 'click', function() {
+			table.ajax.reload();
+		});
+	});
+	</script>
+	<script> //Create new profile
+	$( document ).ready(function() {
+	  $("#p-add").click(function(){
+		var down = $('#down').val();
+		var up = $('#up').val();
+		var ndown = down.replace(/[^0-9]/g, '');
+		var nup = up.replace(/[^0-9]/g, '');
+		var ldown = down.charAt(down.length-1);
+		var lup = up.charAt(up.length-1);
+		
+			if (typeof ldown != undefined && ldown == 'k'){
+				var down = ndown * 1024;
+			} else if (typeof ldown != undefined && ldown == 'm'){ 
+				var down = ndown * 1024000;
+			}
+			else {
+				var down = ndown;
+			}
+			if (typeof lup != undefined && lup == 'k'){
+				var up = nup * 1024;
+			} else if (typeof lup != undefined && lup == 'm'){ 
+				var up = nup * 1024000;
+			}
+			else {
+				var up = nup;
+			}
+		
+		$.ajax({
+		url: "/api/profiles",
+		type: "POST",
+		data: {groupname: $('#groupname').val(), down: down, up: up}
+		});
+	  });
+	});
+	</script>
+	<script> //Create new client
+	$( document ).ready(function() {
+	  $("#c-add").click(function(){
+		$.ajax({
+		url: "/api/clients",
+		type: "POST",
+		data: {fullname: $('#fullname').val(), birth: $('#birth').val(), email: $('#email').val(), socialID: $('#socialID').val(), phone1: $('#phone1').val(), phone2: $('#phone2').val(), add_street: $('#street').val(), add_number: $('#number').val(), add_info: $('#addinfo').val(), add_district: $('#district').val(), add_zip: $('#zip').val(), add_city: $('#city').val(), add_state: $('#state').val(), login: $('#login').val(), password: $('#password').val(), profile: $('#p-dropdown').val()}
+		});
+	  });
+	});
+	</script> 
+	<script> //Get profiles dropdown
+    $.getJSON("/api/profiles-drop", function(json){
+            $('#p-dropdown').empty();
+            $('#p-dropdown').append($('<option>').text("Select plan..."));
+            $.each(json, function(i, obj){
+				$('#p-dropdown').append($('<option>').text(obj.groupname).attr('value', obj.val));
+			});
+    });
+	</script>
+</body>
+</html>

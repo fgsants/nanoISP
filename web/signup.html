@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Signup</title>
+
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div>
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add new client</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h5><b>Informações de Contato</b></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="fullname"> </label>
+							<input type="text" class="form-control" id="fullname" placeholder="Nome completo">
+						</div>
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-3">
+							<label for="birth">Nascimento</label>
+							<input type="date" class="form-control" id="birth">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label for="email"></label>
+							<input type="email" class="form-control" id="email" placeholder="E-mail">
+						</div>
+						<div class="col-md-3">
+							<label for="socialID"></label>
+							<input type="text" class="form-control" id="socialID" placeholder="CPF">
+						</div>
+						<div class="col-md-3">
+							<label for="phone1"></label>
+							<input type="tel" class="form-control" id="phone1" placeholder="Fixo">
+						</div>
+						<div class="col-md-3">
+							<label for="phone2"></label>
+							<input type="tel" class="form-control" id="phone2" placeholder="Celular">
+						</div>
+					</div>
+					<h5><b>Endereço</b></h4>
+					<div class="row">
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="street" placeholder="Rua">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="number" placeholder="Nº">
+						</div>
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="addinfo" placeholder="Complemento">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-control" id="zip" placeholder="CEP">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="district"></label>
+							<input type="text" class="form-control" id="district" placeholder="Bairro">
+						</div>
+						<div class="col-md-4">
+							<label for="city"></label>
+							<select class="form-control"  id="city">
+								<option selected disabled>Cidade</option>
+								<option>Jaboatão dos Guararapes</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<label for="state"></label>
+							<select class="form-control"  id="state">
+								<option selected disabled>Estado</option>
+								<option>PE</option>
+							</select>
+						</div>
+					</div>
+					<h5><b>Informações de login</b></h4>
+					<div class="row">
+						<div class="col-md-3">
+							<input type="text" class="form-control" id="login" placeholder="Login">
+						</div>
+						<div class="col-md-3">
+							<input type="password" class="form-control" id="password" placeholder="Senha">
+						</div>
+						<div class="col-md-3">
+							<input type="password" class="form-control" id="password2" placeholder="Confirmar senha">
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+					<p> </p>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default c-list" id="c-add" data-dismiss="modal">Submit</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/validator.js"></script>
+</body>
+</html>

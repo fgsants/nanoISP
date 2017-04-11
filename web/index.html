@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -177,7 +177,7 @@
 							<input type="text" class="form-control" id="street" placeholder="Street">
 						</div>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="number" placeholder="N?">
+							<input type="text" class="form-control" id="number" placeholder="Nº">
 						</div>
 						<div class="col-md-4">
 							<input type="text" class="form-control" id="addinfo" placeholder="Addicional Info">
@@ -193,11 +193,17 @@
 						</div>
 						<div class="col-md-4">
 							<label for="city"></label>
-							<input type="text" class="form-control" id="city" placeholder="City">
+							<select class="form-control"  id="city">
+								<option selected disabled>Cidade</option>
+								<option>Jaboatão dos Guararapes</option>
+							</select>
 						</div>
 						<div class="col-md-3">
 							<label for="state"></label>
-							<input type="text" class="form-control" id="state" placeholder="State">
+							<select class="form-control"  id="state">
+								<option selected disabled>Estado</option>
+								<option>PE</option>
+							</select>
 						</div>
 					</div>
 					<h5><b>Account information</b></h4>
@@ -262,6 +268,19 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/sidebar.js"></script>
 	<script src="js/datatables.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/validator.js"></script>
+	
+	<script>
+	$(document).ready(function($){
+		$("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+		$("#phone1").mask("(99) 9 9999-9999",{placeholder:" "});
+		$("#phone2").mask("(99) 9 9999-9999",{placeholder:" "});
+		$("#socialID").mask("999.999.999-99",{placeholder:" "});
+		$("#zip").mask("99999-999",{placeholder:" "});
+	});
+
+	</script>
 	
 	<script> //Hide contend
 		$("a").on("click", function(e) {
@@ -273,7 +292,7 @@
 		
 	</script>
 	<script> //Get clients
-function format (d) {
+	function format (d) {
     // `d` is the original data object for the row
     return '<div class="slider"><table>'+
         '<tr>'+

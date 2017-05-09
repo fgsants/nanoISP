@@ -113,5 +113,20 @@ table.dataTable thead th.sorting:after {
 .hide-content {
 	display:block;
 }
-#clients, #groups, #placeholder{ display:none; }
+.has-feedback label~.form-control-feedback {
+    top: 19px;
+}
+.form-control-feedback {
 
+    text-align: left;
+}
+
+@media (min-width: 900px)
+.col-md-6 {
+    width: 50%;
+}
+@media (min-width: 900px)
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+    float: left;
+}
+#clients, #groups, #placeholder{ display:none; }

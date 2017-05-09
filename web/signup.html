@@ -4,109 +4,159 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Signup</title>
 
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-	<div>
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Add new client</h4>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-12">
-							<h5><b>Informações de Contato</b></h4>
+<body style="background-color: transparent;">
+				<form data-toggle="validator" id="signup" role="form">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<p>Preencha as informações abaixo para acessar gratuitamente o nano|WiFi por 24 horas. Dúvidas entre em contato pelo (81) 9 9731-6999, támbem disponível pelo Whatsapp.</p>
+								<p></p>
+							</div>
+							<div class="col-md-12">
+								<h5><b>Informações de Contato</b></h4>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label for="fullname"> </label>
-							<input type="text" class="form-control" id="fullname" placeholder="Nome completo">
+						<div class="row">
+							<div class="col-md-6 form-group has-feedback">
+								<label for="fullname"> </label>
+								<input type="text" class="form-control" id="fullname" placeholder="Nome completo" required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								</div>
+							<div class="col-md-3">
+							</div>
+							<div class="col-md-3 form-group has-feedback">
+								<label for="birth">Nascimento</label>
+								<input type="date" class="form-control" id="birth" required>
+							</div>
 						</div>
-						<div class="col-md-3">
-						</div>
-						<div class="col-md-3">
-							<label for="birth">Nascimento</label>
-							<input type="date" class="form-control" id="birth">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<label for="email"></label>
-							<input type="email" class="form-control" id="email" placeholder="E-mail">
-						</div>
-						<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-3 form-group has-feedback">
+								<label for="email"></label>
+								<input type="email" class="form-control" id="email" placeholder="E-mail" required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							</div>
+						<div class="col-md-3 form-group has-feedback" id="SID">
 							<label for="socialID"></label>
-							<input type="text" class="form-control" id="socialID" placeholder="CPF">
+							<input type="text" class="form-control" id="socialID" data-error="CPF inválido" pattern=".{14}" placeholder="CPF">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<div class="help-block with-errors">
+								<ul class="list-unstyled" id="SID-help">
+								</ul>
+							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3 form-group">
 							<label for="phone1"></label>
-							<input type="tel" class="form-control" id="phone1" placeholder="Fixo">
+							<input type="text" class="form-control" id="phone1" pattern=".{14}" placeholder="Fixo">
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3 form-group has-feedback">
 							<label for="phone2"></label>
-							<input type="tel" class="form-control" id="phone2" placeholder="Celular">
+							<input type="text" class="form-control" id="phone2" pattern=".{16}" placeholder="Celular" required>
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						</div>
+						</div>
+						<h5><b>Endereço</b></h4>
+						<div class="row">
+							<div class="col-md-4 form-group has-feedback">
+								<input type="text" class="form-control" id="street" placeholder="Rua" required>
+							</div>
+							<div class="col-md-2 form-group has-feedback">
+								<input type="number" class="form-control" id="number" placeholder="Nº" required>
+							</div>
+							<div class="col-md-4 form-group has-feedback">
+								<input type="text" class="form-control" id="addinfo" placeholder="Complemento">
+							</div>
+							<div class="col-md-2 form-group has-feedback">
+								<input type="text" class="form-control" id="zip" pattern=".{9}" placeholder="CEP" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 form-group has-feedback">
+								<label for="district"></label>
+								<input type="text" class="form-control" id="district" placeholder="Bairro" required>
+							</div>
+							<div class="col-md-4 form-group has-feedback">
+								<label for="city"></label>
+								<select class="form-control"  id="city" required>
+									<option selected disabled>Cidade</option>
+									<option>Jaboatão dos Guararapes</option>
+								</select>
+							</div>
+							<div class="col-md-3 form-group has-feedback">
+								<label for="state"></label>
+								<select class="form-control"  id="state" required>
+									<option selected disabled>Estado</option>
+									<option>PE</option>
+								</select>
+							</div>
+						</div>
+						<h5><b>Informações de login</b></h4>
+						<div class="row">
+							<div class="col-md-3 form-group has-feedback">
+								<label for="login"></label>
+								<input type="text" class="form-control" id="login" placeholder="Login" required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							</div>
+							<div class="col-md-3 form-group has-feedback">
+								<label for="password"></label>
+								<input type="password" class="form-control" id="password" placeholder="Senha" required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							</div>
+							<div class="col-md-3 form-group has-feedback">
+								<label for="password2"></label>
+								<input type="password" class="form-control" id="password2" data-match="#password" data-match-error="Senhas não batem" placeholder="Confirmar senha" required>
+								<div class="help-block with-errors"></div>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							</div>
+							<div class="col-md-3">
+							</div>
+						</div>
+						<p> </p>
+						<div class="modal-footer">
+							<div class="form-group">
+								<div class="help-block with-errors">
+									<ul class="list-unstyled" id="incomplete">
+									</ul>
+								</div>
+								<button type="submit" class="btn btn-primary" id="c-add">Cadastrar</button>
+							</div>
 						</div>
 					</div>
-					<h5><b>Endereço</b></h4>
-					<div class="row">
-						<div class="col-md-4">
-							<input type="text" class="form-control" id="street" placeholder="Rua">
-						</div>
-						<div class="col-md-2">
-							<input type="text" class="form-control" id="number" placeholder="Nº">
-						</div>
-						<div class="col-md-4">
-							<input type="text" class="form-control" id="addinfo" placeholder="Complemento">
-						</div>
-						<div class="col-md-2">
-							<input type="text" class="form-control" id="zip" placeholder="CEP">
-						</div>
+				</form>
+
+	<div id="success" class="modal fade" role="dialog">
+		<div class="modal-dialog ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Cadastro realizado com sucesso...</h4>
+			</div>
+			<div class="modal-content">
+				<div class="modal-body">
+					<div>
+						<p>Seja bem vindo a NANO, aproveite o seu acesso grátis.</p>
 					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="district"></label>
-							<input type="text" class="form-control" id="district" placeholder="Bairro">
-						</div>
-						<div class="col-md-4">
-							<label for="city"></label>
-							<select class="form-control"  id="city">
-								<option selected disabled>Cidade</option>
-								<option>Jaboatão dos Guararapes</option>
-							</select>
-						</div>
-						<div class="col-md-3">
-							<label for="state"></label>
-							<select class="form-control"  id="state">
-								<option selected disabled>Estado</option>
-								<option>PE</option>
-							</select>
-						</div>
-					</div>
-					<h5><b>Informações de login</b></h4>
-					<div class="row">
-						<div class="col-md-3">
-							<input type="text" class="form-control" id="login" placeholder="Login">
-						</div>
-						<div class="col-md-3">
-							<input type="password" class="form-control" id="password" placeholder="Senha">
-						</div>
-						<div class="col-md-3">
-							<input type="password" class="form-control" id="password2" placeholder="Confirmar senha">
-						</div>
-						<div class="col-md-3">
-						</div>
-					</div>
-					<p> </p>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-default c-list" id="c-add" data-dismiss="modal">Submit</button>
 				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="error" class="modal fade" role="dialog">
+		<div class="modal-dialog ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add new profile</h4>
+			</div>
+			<div class="modal-content">
+				<div class="modal-body">
+					<div>
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -117,5 +167,61 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/validator.js"></script>
+	<script src="js/valida_cpf.min.js"></script>
+	
+	<script> //Validations and markups
+	$(document).ready(function($){
+		$("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+		$("#phone1").mask("(99) 9999-9999",{placeholder:" "});
+		$("#phone2").mask("(99) 9 9999-9999",{placeholder:""});
+		$("#zip").mask("99999-999",{placeholder:""});
+		$("#socialID").mask("999.999.999-99",{placeholder:""});
+		$("#socialID").blur(function(){
+			var cpf = $(this).val();
+			if ( valida_cpf_cnpj(cpf)){
+				var check;
+				$.post('/api/sid', {socialID: $('#socialID').val()}, function( data ) {
+					console.log(data[0].exists);
+					var check = (data[0].exists);
+				}, "json");
+
+				console.log(check);
+				
+				$("#SID").removeClass("has-error has-danger").addClass("has-success");
+				$("#SID-help").html($('<li>'));
+			} else {
+				$("#SID").removeClass("has-success").addClass("has-error has-danger");
+				$("#SID-help").html($('<li>').text("CPF inválido"));
+			}
+		});
+	});
+	
+	</script>
+	<script>
+	$( document ).ready(function() {
+		$('#form').validator().on('submit', function (e) {
+			if (e.isDefaultPrevented()) {
+				$("#incomplete").html($('<li>').text("Por favor virifiquie as informações digitadas."));
+			} else {
+				$("#incomplete").html($('<li>'));
+				$("#c-add").click(function(){
+					$.ajax({
+					url: "/api/signup",
+					type: "POST",
+					data: {fullname: $('#fullname').val(), birth: $('#birth').val(), email: $('#email').val(), socialID: $('#socialID').val(), phone1: $('#phone1').val(), phone2: $('#phone2').val(), add_street: $('#street').val(), add_number: $('#number').val(), add_info: $('#addinfo').val(), add_district: $('#district').val(), add_zip: $('#zip').val(), add_city: $('#city').val(), add_state: $('#state').val(), login: $('#login').val(), password: $('#password').val()},
+					success: function(data) {
+						$("#success").modal();
+					},
+					error: function() {
+						$("#error").modal();
+					}
+					});
+				});
+				
+			}
+		})
+	});
+
+	</script> 
 </body>
 </html>

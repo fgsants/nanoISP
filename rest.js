@@ -51,7 +51,64 @@ REST_ROUTER.prototype.handleRoutes = function (router, connection, md5) {
   })
 
 // POST Requests
+  router.post('/login', function (req, res) {
+    var query = 'SELECT COUNT(username) as `exists` FROM radcheck WHERE username=?'
+	var info = [req.body.login]
+    query = mysql.format(query, info)
+	console.log(query)
+	    connection.query(query, function (err, aaData) {
+      if (err) {
+        res.json({'Error': true, 'Message': 'Error executing MySQL query'})
+      } else {
+        res.json(aaData)
+      }
+    })
+  })
+
+  router.post('/sid', function (req, res) {
+    var query = 'SELECT COUNT(socialID) as `exists` FROM clients WHERE socialid=?'
+	var info = [req.body.socialID]
+    query = mysql.format(query, info)
+	console.log(query)
+	    connection.query(query, function (err, aaData) {
+      if (err) {
+        res.json({'Error': true, 'Message': 'Error executing MySQL query'})
+      } else {
+        res.json(aaData)
+      }
+    })
+  })
+  
   router.post('/clients', function (req, res) {
+    var query1 = 'INSERT INTO ??(??,??,??,??,??,??,??,??,??,??,??,??,??) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)'
+    var query2 = 'INSERT INTO ??(??,??,??,??) VALUES (?,?,?,?)'
+    var query3 = 'INSERT INTO ??(??,??,??) VALUES (?,?,?)'
+    var table1 = ['clients', 'fullname', 'birth', 'email', 'socialID', 'phone1', 'phone2', 'add_street', 'add_number', 'add_district', 'add_zip', 'add_city', 'add_state', 'username', req.body.fullname, req.body.birth, req.body.email, req.body.socialID, req.body.phone1, req.body.phone2, req.body.add_street, req.body.add_number, req.body.add_district, req.body.add_zip, req.body.add_city, req.body.add_state, req.body.login]
+    var table2 = ['radcheck', 'username', 'attribute', 'op', 'value', req.body.login, 'Cleartext-Password', ':=', req.body.password]
+    var table3 = ['radusergroup', 'username', 'groupname', 'priority', req.body.login, req.body.profile, 1]
+    sql1 = mysql.format(query1, table1)
+    sql2 = mysql.format(query2, table2)
+    sql3 = mysql.format(query3, table3)
+    connection.query(sql2, function (err, rows) {
+      if (err) {
+        res.json({'Error': true, 'Message': 'Error executing MySQL query'})
+      }
+      connection.query(sql3, function (err, rows) {
+        if (err) {
+          res.json({'Error': true, 'Message': 'Error executing MySQL query'})
+        }
+        connection.query(sql1, function (err, rows) {
+          if (err) {
+            res.json({'Error': true, 'Message': 'Error executing MySQL query'})
+          } else {
+            res.json({'Error': false, 'Message': 'Client Added !'})
+          }
+        })
+      })
+    })
+  })
+
+  router.post('/signup', function (req, res) {
     var query1 = 'INSERT INTO ??(??,??,??,??,??,??,??,??,??,??,??,??,??) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)'
     var query2 = 'INSERT INTO ??(??,??,??,??) VALUES (?,?,?,?)'
     var query3 = 'INSERT INTO ??(??,??,??) VALUES (?,?,?)'

@@ -293,7 +293,6 @@
 	</script>
 	<script> //Get clients
 	function format (d) {
-    // `d` is the original data object for the row
     return '<div class="slider"><table>'+
         '<tr>'+
             '<td><b>Address:&nbsp;</b>'+d.add_street+ ',&nbsp;' +d.add_number+ ',&nbsp;' +d.add_district+ ',&nbsp;'+d.add_zip+ ',&nbsp;' +d.add_city+ ',&nbsp;' +d.add_state+'</td>'+
@@ -330,20 +329,17 @@ $( document ).ready(function() {
 		"order": [[1, 'asc']]
 	   });
 
-    // Add event listener for opening and closing details
     $('#clients-list').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
  
         if ( row.child.isShown() ) {
-            // This row is already open - close it
             $('div.slider', row.child()).slideUp( function () {
 			row.child.hide();
             tr.removeClass('shown');
 			});
         }
         else {
-            // Open this row
             row.child( format(row.data()), 'no-padding' ).show();
             tr.addClass('shown');
 			$('div.slider', row.child()).slideDown();

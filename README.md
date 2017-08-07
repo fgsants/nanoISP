@@ -1,3 +1,5 @@
+*I'm Currently working in a new version of this project with proper RESTFull API intgration & compatible with my REST-API-FreeRADIUS project.
+
 # nanoISP | Manager
 nanoISP | Manager is a little project to manage and control users in an ISP enviroment focusing integration with Ubiquiti's EdgeMAX routers for traffic shapping. Support for Mikrotik RouterOS is also on the list. 
 
